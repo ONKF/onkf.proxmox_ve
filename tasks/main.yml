@@ -1,0 +1,29 @@
+---
+# tasks file for /home/hirnpfirsich/ohne-netz-kein-fetz/onkf.proxmox_ve
+
+- include_tasks: asserts.yml
+
+- name: configure repositories
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - { src: "sources.list.j2", dest: "/etc/apt/sources.list" }
+    - { src: "ceph.list.j2", dest: "/etc/apt/sources.list.d/ceph.list" }
+    - { src: "pve-enterprise.list.j2", dest: "/etc/apt/sources.list.d/pve-enterprise.list" }
+  notify:
+    - update apt cache
+
+# flush handlers to call apt update so we have the microcode packages available
+- ansible.builtin.meta: flush_handlers
+
+- name: install microcode
+  ansible.builtin.package:
+    name: "{{ item.package }}"
+    state: "{{ 'present' if item.cpu_pattern in ansible_processor | join('') else 'absent' }}"
+  with_items:
+    - { package: 'intel-microcode', cpu_pattern: 'Intel' }
+    - { package: 'amd64-microcode', cpu_pattern: 'AMD' }

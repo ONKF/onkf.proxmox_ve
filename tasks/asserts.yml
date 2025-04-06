@@ -1,0 +1,21 @@
+---
+- name: check that we are on x86-64
+  ansible.builtin.assert:
+    that: ansible_machine == 'x86_64'
+
+- name: check that we are on debian 12
+  ansible.builtin.assert:
+    that:
+      - ansible_distribution == "Debian"
+      - ansible_distribution_release == "bookworm"
+
+- name: check if repositories are valid
+  ansible.builtin.assert:
+    that:
+      - pve_repository in repositories
+      - ceph_repository in repositories
+
+- name: check if ceph version is valid
+  ansible.builtin.assert:
+    that:
+      - ceph_version in ceph_versions

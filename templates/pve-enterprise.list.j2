@@ -1,0 +1,2 @@
+{{ ansible_managed | comment }}
+{{ '' if pve_repository == 'enterprise' else '#' }}deb https://enterprise.proxmox.com/debian/pve {{ ansible_distribution_release }} pve-enterprise

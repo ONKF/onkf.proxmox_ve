@@ -1,0 +1,16 @@
+{{ ansible_managed | comment }}
+
+deb http://ftp.de.debian.org/debian {{ ansible_distribution_release }} main contrib non-free-firmware
+
+deb http://ftp.de.debian.org/debian {{ ansible_distribution_release }}-updates main contrib non-free-firmware
+
+# security updates
+deb http://security.debian.org {{ ansible_distribution_release }}-security main contrib non-free-firmware
+
+{% if pve_repository == 'no-subscription' %}
+# Proxmox VE pve-no-subscription repository provided by proxmox.com,
+# NOT recommended for production use
+deb http://download.proxmox.com/debian/pve {{ ansible_distribution_release }} pve-no-subscription
+{% elif pve_repository == 'test' %}
+deb http://download.proxmox.com/debian/pve {{ ansible_distribution_release }} pvetest
+{% endif %}

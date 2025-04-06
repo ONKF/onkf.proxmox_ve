@@ -1,0 +1,5 @@
+---
+# handlers file for /home/hirnpfirsich/ohne-netz-kein-fetz/onkf.proxmox_ve
+- name: update apt cache
+  ansible.builtin.apt:
+    update_cache: True

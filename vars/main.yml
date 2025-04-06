@@ -1,0 +1,10 @@
+---
+# vars file for /home/hirnpfirsich/ohne-netz-kein-fetz/onkf.proxmox_ve
+repositories:
+  - enterprise
+  - no-subscription
+  - test
+ceph_versions:
+  - quincy
+  - reef
+  - squid
