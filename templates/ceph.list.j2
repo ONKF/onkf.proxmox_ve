@@ -1,4 +1,0 @@
-{{ ansible_managed | comment }}
-{% set proto = 'https' if ceph_repository == 'enterprise' else 'http' %}
-{% set domain = 'enterprise' if ceph_repository == 'enterprise' else 'download' %}
-deb {{ proto }}://{{ domain }}.proxmox.com/debian/ceph-{{ ceph_version }} {{ ansible_distribution_release }} {{ ceph_repository }}

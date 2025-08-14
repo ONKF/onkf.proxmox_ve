@@ -1,0 +1,8 @@
+{{ ansible_managed | comment }}
+{% set proto = 'https' if ceph_repository == 'enterprise' else 'http' %}
+{% set domain = 'enterprise' if ceph_repository == 'enterprise' else 'download' %}
+Types: deb
+URIs: {{ proto }}://{{ domain }}.proxmox.com/debian/ceph-{{ ceph_version }}
+Suites: {{ ansible_distribution_release }}
+Components: {{ ceph_repository }}
+Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg

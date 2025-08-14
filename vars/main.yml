@@ -5,6 +5,4 @@ repositories:
   - no-subscription
   - test
 ceph_versions:
-  - quincy
-  - reef
   - squid

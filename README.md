@@ -8,7 +8,7 @@ This role does basic configuration of a proxmox virtual environment node:
 Requirements
 ------------
 
-* Proxmox VE 8 (is checked via `Debian 12` conditional)
+* Proxmox VE 9 (is checked via `Debian 13` conditional)
 
 Role Variables
 --------------
@@ -17,7 +17,7 @@ Role Variables
 | ---               | ---      | ---               | ---      | ---                                                                                  |
 | `pve_repository`  | `string` | `no-subscription` | yes      | which pve repository to use. valid repos: `enterprise`, `no-subscrption` and `test`  |
 | `ceph_repository` | `string` | `no-subscription` | yes      | which ceph repository to use. valid repos: `enterprise`, `no-subscrption` and `test` |
-| `ceph_version`    | `string` | `quincy`          | yes      | which ceph version to use. valid versions: `quincy`, `reef`, `squid`                 |
+| `ceph_version`    | `string` | `squid`           | yes      | which ceph version to use. valid versions: `squid`                                   |
 
 Dependencies
 ------------

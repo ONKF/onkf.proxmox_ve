@@ -3,11 +3,11 @@
   ansible.builtin.assert:
     that: ansible_machine == 'x86_64'
 
-- name: check that we are on debian 12
+- name: check that we are on debian 13
   ansible.builtin.assert:
     that:
       - ansible_distribution == "Debian"
-      - ansible_distribution_release == "bookworm"
+      - ansible_distribution_release == "trixie"
 
 - name: check if repositories are valid
   ansible.builtin.assert:

@@ -2,4 +2,4 @@
 # defaults file for /home/hirnpfirsich/ohne-netz-kein-fetz/onkf.proxmox_ve
 pve_repository: no-subscription
 ceph_repository: no-subscription
-ceph_version: quincy
+ceph_version: squid

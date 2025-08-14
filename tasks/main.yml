@@ -12,8 +12,8 @@
     mode: 0644
   with_items:
     - { src: "sources.list.j2", dest: "/etc/apt/sources.list" }
-    - { src: "ceph.list.j2", dest: "/etc/apt/sources.list.d/ceph.list" }
-    - { src: "pve-enterprise.list.j2", dest: "/etc/apt/sources.list.d/pve-enterprise.list" }
+    - { src: "ceph.sources.j2", dest: "/etc/apt/sources.list.d/ceph.sources" }
+    - { src: "pve-enterprise.sources.j2", dest: "/etc/apt/sources.list.d/pve-enterprise.sources" }
   notify:
     - update apt cache
 
